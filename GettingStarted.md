@@ -28,7 +28,7 @@ An *Organization* is a where all your devices, or nodes as they are called, are 
 4. Log in to the microServiceBus.com site using the credentials you supplied in step 2. 
 5. Select **"Option 2. Use my Microsoft Azure IoT Hub"**, and provide the **iothubowner** connection string for your Azure IoT Hub. 
 6. Uncheck the “*Add sample scenarios*” checkbox and click *Create organization* 
-
+7. Navigate to the [Organization page](https://microservicebus.com/Organizations/Details) and view some of the options.
 ### Installing the Node
 In this first lab, you're going to be using your laptop as your device. In later labs we're going to use real devices.
 
@@ -39,26 +39,27 @@ But before we begin, we need to install the microservicebus-node package on to y
 mkdir msb
 cd msb
 ```
-2. Install the npm package
+2. Install the npm package by typing:
 ```
-npm install microservicebus.node
+npm install microservicebus-node
 ```
 This step will now install an NPM package which will serve as our generic device application. **Don't wait for the the package to complete, just continue with the step**.
 
 #### Regiter and start the node
->In the microServiceBus.com portal, a *Node* referes to the agent running on the gateway that will run on the device (your laptop in this case). The *Node* is responsible for interacting with the sensors attached to the device and also understands how to communicate with your IoT Hub.
+>In the microServiceBus.com portal, a *Node* referes to the agent running on the  device (your laptop in this case). The *Node* is responsible for interacting with the sensors attached to the device and also understands how to communicate with your IoT Hub.
 
-1. Navigate to the *Nodes* page by clinging this [this](https://microservicebus.com/nodes) or using the menu in the upper left corner.
-2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel lucky.
->The NPM papckage should be installed by now, -and it’s time to start it up. The NPM package you installed earlier is a generic client which hasn’t been given credentials to log in to your organization. 
+1. Navigate to the *Nodes* page by clicking [this link](https://microservicebus.com/nodes) or using the menu in the upper left corner.
+2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel brave.
+>The NPM papckage from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
+
 3. Still on the Nodes page, click the *“Generate”* button to receive a temporary code.
-4. Navigate to the installation directory using the console/terminal window, type:
+4. Navigate to the installation directory using the console/terminal window, and type:
 ```
 cd node_modules/microservicebus.node
 ```
 5. Provition your *Node* using the code from step 2 and the name of your *Node*, Eg:
 ```
-node start -c ABC123 -n device1
+node start -c [The code] -n [Node name]
 ```
 The node should startup with no errors:
 
@@ -69,20 +70,24 @@ The node should startup with no errors:
 
 Begin with navigating to the [Flow page](https://microservicebus.com/Integration),  click the **CREATE NEW** button. Give it a name, such as "Transmit Sensor data".
 
->After the *Flow* has been created, a flow designer will appear. On the left you’ll see *Services* grouped in **Inbound-**, **Outbound-** and **Other Services**. Inbound services are services that starts the flow, such as reading a sensor. Outbound services are generally sending data somewhere else, as to an IoT Hub or a control unit. Sometimes you need to write some custom script for which you can find the Script service among the Other Services category.
+>After the *Flow* has been created, a flow designer will appear. On the left you’ll see *Services* grouped in **Inbound-**, **Outbound-** and **Other Services**. Inbound services are services that starts the flow, for excample through reading a sensor. Outbound services are generally sending data somewhere else, as to an IoT Hub or a control unit. Sometimes you need to write some custom script for which you can find the Script service among the Other Services category.
 
 1. Start out by dragging a **Simulator Temperature Sensor** service from the toolbox (Inbound) to the designer canvas.
-2. Next drag an **Azure IoT Events** (Outbound) service to the right of the TI Sensor service. Your 
+2. Next drag an **Azure IoT Events** (Outbound) service to the right of the temperature ervice. 
+
+Your *Flow* should look something like this: 
 
 <img src="./img/flow1.png" alt="Drawing" style="height: 100px;"/>
 
->Before you save the *Flow* you need to define where the *Service* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Service* should get deployed to the *Node* running on your laptop.
+>Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Service* should get deployed to the *Node* running on your laptop.
 
 3. Double-click on **Simulator Temperature Sensor** *Service* in the designer and set the *Node* property to the name of your *Node* Eg *"device1"*.
 4. In the *Static Properties* tab, set the interval to **5** seconds.
+>**Static-** and **Security** properties are specific to the *Service* and may differ a lot from one *Service* to the other. We'll look more into *Services* in later labs.
+
 5. Click *Ok* and proceed by dubble-clicking the **Azure IoT Events** and set the *Node* property to the name of your device.
 6. Save the script by clicking the "Save" button.
 7. Go back to your console/terminal window and notice your services has been downloaded and started.
-8. At the *Node* page in the portal, enable **Debug** by clicking the toggle button. This causes the *Services* to output debug information. 
+8. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
 9. Although it's convinient to se the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
