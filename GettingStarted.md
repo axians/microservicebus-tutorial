@@ -1,34 +1,9 @@
 # <img src="./img/msb-logo.png" alt="Node.js" /> microServiceBus.com 
 
 ## Getting started
-In this lab we’re going to create and end-to-end solution. You are going to create a solution that submits sensor data from the Node and forwards them to Microsoft Power BI.
-The objective is to understand the setup process of the microServiceBus-node and familiarize yourself with microServiceBus.com portal. We are not going to complicate things with connectivity to sensors at this stage, so we’re just going to use a simulated temperature sensor.
+In this first lab you are going to create a solution that submits CPU data from your computer and forward them to the IoT hub and finally to Microsoft Power BI.
+The objective is to understand the setup process of the microServiceBus-node and familiarize yourself with **microServiceBus.com** portal. We are not going to complicate things with connectivity to sensors at this stage.
 
-### Create an Azure IoT Hub
-> This step requires you to have access to an Azure Account. Should this not be the case, tell the trainer and he or she will provide a *connection string* for you.
-In this step, you’re going to create your own Azure IoT hub which is going to be used for transmitting messages to and from your device.
-
-1.	Log in to the [Azure Portal](https://portal.azure.com/)
-2.	Click **New** and type "iot", click the "IoT Hub" option from the drop-down
-<img src="http://microservicebus.blob.core.windows.net/img/azurebootcamp_1.png"/>
-
-3.	Give your hub a **Name** and select F1 Free as the Pricing and scale tier. Click **Create** after setting Resource group and Location (North- or West Europe). 
-
-4.	Open the IoT Hub blade if it's not already opend. Click to the **Shared access policies** option in the left-hand menu and click the **iothubowner** policy. Copy the *Connection string—primary key*.
->The connection key is going to be used when settng up your *Organization* in microServiceBus.com in the next step.
-
-### Set up the your Organization in microServiceBus.com
-
-An *Organization* is a where all your devices, or nodes as they are called, are managed. When creating a new Organization, you will automatically be assigned as owner of the Organization. You can later add other people to your organization to share you work.
-
-
-1. Navigate to [www.microServiceBus.com](https://microservicebus.com) and click the “**Register**” button in the upper right corner. 
-2. Fill out your details, accept the terms and conditions and click “**Register**”. 
-3. Check your mail box, open the confirmation mail and click the “**Register**” link. 
-4. Log in to the microServiceBus.com site using the credentials you supplied in step 2. 
-5. Select **"Option 2. Use my Microsoft Azure IoT Hub"**, and provide the **iothubowner** connection string for your Azure IoT Hub. 
-6. Uncheck the “*Add sample scenarios*” checkbox and click *Create organization* 
-7. Navigate to the [Organization page](https://microservicebus.com/Organizations/Details) and view some of the options.
 ### Installing the Node
 In this first lab, you're going to be using your laptop as your device. In later labs we're going to use real devices.
 
@@ -64,6 +39,91 @@ node start -c [The code] -n [Node name]
 The node should startup with no errors:
 
 <img src="http://microservicebus.blob.core.windows.net/sample/hol7_node.jpg" alt="Drawing"/>
+
+
+
+### Create a micro Service
+>Micro services are services that are often generic and independent of other services. They are also, as the name implies, smaller. -They are not as complex as most normal services would be, and they are designed to be more agile. As such they can also be exposed in scenarios where we normally would not see services hosted, such as in devices or circuit, running on a range of platforms. Many ordinary services may qualify as micro services, but a micro service might also be something that turns on your light at home, expose the location of a container or manage configuration of oil rigs.
+
+microServiceBus.com is all about Services, - Services that collects data, Services that sends data or Services that manipulates data. We refer to these services as Inbound, Outbound and other services.
+In this first step you’re going to build an Inbound service that picks up CPU utilization. At the end of the lab we’re going to show the numbers in a Power BI report, together with your colleagues equivalent values.
+
+1. Begind by navigating to the [Scripts & Services page](https://microservicebus.com/files). Click the **CREATE NEW** button, and then select **CREATE NEW**.
+2. Give your *Service* a unique name since we're all sharing the same organization. Eg: ```Alex CPU Service``` (prefixing with your name to make it unique). 
+3. Give the service a meaningful *Description* and hit **CREATE**.
+4. In the *Edit* dialog, open the 0.1 version by clicking **Edit** in the upper right corner.
+5. Expand the window by either dubble-clicking on the window bar at top.
+>A service has three functions by default; *Start*, *Stop* and *Process*. The *Process* function is only used for *Outbound* services.
+
+6. As you're buiilding an *Inbound* service you can begin by removing the code in the *Process* function.
+7. Next we're going to add a new function called **cpuAverage**. The purpose of the function is to calculate the CPU utilization. Straight after the *Process* function, before the last curly brackets, paste the following code:
+
+```
+    cpuAverage: function () {
+
+        //Initialise sum of idle and time of cores and fetch CPU info
+        var totalIdle = 0, totalTick = 0;
+        var cpus = os.cpus();
+
+        //Loop through CPU cores
+        for (var i = 0, len = cpus.length; i < len; i++) {
+
+            //Select CPU core
+            var cpu = cpus[i];
+
+            //Total up the time in the cores tick
+            for (type in cpu.times) {
+                totalTick += cpu.times[type];
+            }
+
+            //Total up the idle time of the core
+            totalIdle += cpu.times.idle;
+        }
+
+        //Return the average Idle and Tick times
+        return { idle: totalIdle / cpus.length, total: totalTick / cpus.length };
+    }
+```
+8. Next we're going to call the *cpuAverage* from the **Start** function. We want to call the newly created function on an interval, and lucky enough one has alread been provided for us. At line 20, Replace the ```// TO DO!``` with:
+```
+var startMeasure = self.cpuAverage();
+```
+
+9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, add the following.
+```
+//Set delay for second Measure
+setTimeout(function () {
+
+    //Grab second Measure
+    var endMeasure = self.cpuAverage();
+
+    //Calculate the difference in idle and total time between the measures
+    var idleDifference = endMeasure.idle - startMeasure.idle;
+    var totalDifference = endMeasure.total - startMeasure.total;
+
+    //Calculate the average percentage CPU usage
+    var percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
+
+}, 100);
+```
+10. Great! **percentageCPU** is the value we'd like to submit. But lets add some more attributes the the message. At the line after we've declared and set the *percentageCPU* variable, add the following:
+```
+var payload = {
+    percent: percentageCPU,
+    computer: os.hostname(),
+    node: self.NodeName,
+    timeStamp: new Date()
+}
+// Submit payload to Node.
+self.SubmitMessage(payload, "application/json", []);
+```
+You have new created a message and submitting it to the next service.
+
+11. Before you're done, we just needs  to clean up the *payload* and *SubmitMessage* statenebts that came with the template.
+
+[Here](./templates/cpuService.js) is complete sample of the service, 
+
+
 
 #### Create a Flow
 >A *Flow* or scenario is a process defining how *Services* interact. A *Service* is essentially a piece of software (JavaScript in this case) that does something useful, such as reading a sensor, saving a file or transforming a message to the IoT Hub.
