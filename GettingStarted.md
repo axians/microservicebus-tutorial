@@ -149,6 +149,10 @@ You have new created a message and submitting it to the next service.
 6. Click *Ok* and proceed by double-clicking the **Azure IoT Events** and set the *Node* property to the name of your device.
 7. Save the script by clicking the "Save" button.
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
+<img src="./img/gettingstarted2.png" alt="Drawing"/>
 9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
+11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
+
+## Well done, you've completed the first lab.
