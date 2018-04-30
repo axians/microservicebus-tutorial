@@ -77,3 +77,30 @@ _staticprop
 
 #### Commit and push to GitHub
 Your script is done and we're ready to commit our changes.  
+
+1. Hit CTRL + S to save your script.
+2. Click the Git icon in the left menu, type "Modified" in textbox and hit CTRL+S.
+<img src="./img/alm3.png" alt="vscode" />
+3. The file is now commited to your local repo, and we're ready to push it to gitHub. Type:
+```
+git push
+```
+4. Navigate back to the portal and notice the notification. Refresh the *File edit* page and notice the new version. Open the script and view your changes.
+
+>Before we're done, lets add the **interval** property to the *Service*. 
+
+5. Click the **Static Properties** tab on the *Edit Service Script* page.
+6. Click the **+ Add new record" button. Set the *Property* as following:
+* Order : **0** *(indicates in what order the properties are presented for the user)*
+* Id : **interval** *(name of the variable)*
+* Name : **Interval (ms)** *(property name shown to the user)*
+* Description : **Leave empty** *(help text for the user)*
+* Initial value : **5000** *(Default value)*
+* Type : **integer** *(datatype)*
+* Mandatory : **true** *(indicates if it is a required field)*
+
+7. Click Save, and navigate to the *Flow*.
+
+8. Remove the existing *CPU Service* from the designer. -Search and drag the updated service from the toolbox to the *Flow*. Connect the new *Service* to the *Azure Event Service**.
+9. Double-click the *CPU Service*, set the *Node* property and click the **Static Property** tab. Notice the new *Interval* property.
+10. Click save to publish the updates to the *Node*.   
