@@ -124,7 +124,7 @@ You have new created a message and submitting it to the next service.
 
 11. Before you're done, we just need to clean up the *payload* and *SubmitMessage* statement that came with the template.
 
-[Here](./templates/cpuService.js) is complete sample of the service, 
+[Here](./services/cpuService.js) is complete sample of the service, 
 
 
 
