@@ -10,7 +10,10 @@ This mudule will cover the basics how to create *Nodes*, *Flows* and *Services* 
 ## [Device Management](./ManageYourDevices.md): Manage your devices and IoT Hub
 With our solution up and running, how can we manage the solution, track down and fix issues.
 
-## [Application Lifecycle Management](./alm.md): Manage your devices and IoT Hub
+## [Insight and audit logs](./InsightAndAutitLogs.md): Manage your devices and IoT Hub
+Looking through some more options and tools to identify propblems
+
+## [Application Lifecycle Management](./ApplicationLifecycleManagement.md): Manage your devices and IoT Hub
 Learn how we can manage Scripts in Github or VSTS.
 
 ## [Integration and advanced tasks](./ManageYourDevices): Manage your devices and IoT Hub 
