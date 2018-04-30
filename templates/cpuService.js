@@ -31,9 +31,10 @@ var exports = module.exports = {
                 //Calculate the average percentage CPU usage
                 var percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
                 
+                var computer = os.platform();
                 var payload = {
                     percent: percentageCPU,
-                    computer: os.hostname(),
+                    computer: computer,
                     node: self.NodeName,
                     timeStamp: new Date()
                 };
