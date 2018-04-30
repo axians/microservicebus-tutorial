@@ -6,7 +6,7 @@
 ## [Getting started](./GettingStarted.md): Build your first solution
 This mudule will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
 
-## [Device Management](./ManageYourDevices): Manage your devices and IoT Hub
+## [Device Management](./ManageYourDevices.md): Manage your devices and IoT Hub
 With our solution up and running, how can we manage the solution, track down and fix issues.
 
 ## [Integration and advanced tasks](./ManageYourDevices): Manage your devices and IoT Hub 
