@@ -113,7 +113,8 @@ var payload = {
     computer: os.hostname(),
     node: self.NodeName,
     timeStamp: new Date()
-}
+};
+
 // Submit payload to Node.
 self.SubmitMessage(payload, "application/json", []);
 ```
@@ -128,26 +129,25 @@ You have new created a message and submitting it to the next service.
 #### Create a Flow
 >A *Flow* or scenario is a process defining how *Services* interact. A *Service* is essentially a piece of software (JavaScript in this case) that does something useful, such as reading a sensor, saving a file or transforming a message to the IoT Hub.
 
-Begin with navigating to the [Flow page](https://microservicebus.com/Integration),  click the **CREATE NEW** button. Give it a name, such as "Transmit Sensor data".
+1. Begin with navigating to the [Flow page](https://microservicebus.com/Integration),  click the **CREATE NEW** button. Give it a name, such as "Transmit CPU data".
 
 >After the *Flow* has been created, a flow designer will appear. On the left you’ll see *Services* grouped in **Inbound-**, **Outbound-** and **Other Services**. Inbound services are services that starts the flow, for excample through reading a sensor. Outbound services are generally sending data somewhere else, as to an IoT Hub or a control unit. Sometimes you need to write some custom script for which you can find the Script service among the Other Services category.
 
-1. Start out by dragging a **Simulator Temperature Sensor** service from the toolbox (Inbound) to the designer canvas.
-2. Next drag an **Azure IoT Events** (Outbound) service to the right of the temperature ervice. 
-
-Your *Flow* should look something like this: 
+2. Start out by dragging your CPU Service from the toolbox (should be found among the *Inbound Services*) to the designer canvas.
+3. Next drag an **Azure IoT Events** service (*Outbound Services*) to the right of the temperature ervice. 
+4. Attach the *Services* by dragging the *Connector* from your CPU Service to the *Azure IoT Events* Service.
 
 <img src="./img/flow1.png" alt="Drawing" style="height: 100px;"/>
 
->Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Service* should get deployed to the *Node* running on your laptop.
+>Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Services* should get deployed to the *Node* running on your laptop.
 
-3. Double-click on **Simulator Temperature Sensor** *Service* in the designer and set the *Node* property to the name of your *Node* Eg *"device1"*.
-4. In the *Static Properties* tab, set the interval to **5** seconds.
+3. Double-click on *CPU Service in the designer and set the *Node* property to the name of your *Node* Eg *"device1"*.
+
 >**Static-** and **Security** properties are specific to the *Service* and may differ a lot from one *Service* to the other. We'll look more into *Services* in later labs.
 
-5. Click *Ok* and proceed by dubble-clicking the **Azure IoT Events** and set the *Node* property to the name of your device.
-6. Save the script by clicking the "Save" button.
-7. Go back to your console/terminal window and notice your services has been downloaded and started.
-8. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
-9. Although it's convinient to se the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
+4. Click *Ok* and proceed by dubble-clicking the **Azure IoT Events** and set the *Node* property to the name of your device.
+5. Save the script by clicking the "Save" button.
+6. Go back to your console/terminal window and notice your services has been downloaded and started.
+7. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
+8. Although it's convinient to se the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 

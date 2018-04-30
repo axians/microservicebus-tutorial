@@ -37,7 +37,7 @@ var exports = module.exports = {
                     computer: os.hostname(),
                     node: self.NodeName,
                     timeStamp: new Date()
-                }
+                };
                 // Submit payload to Node.
                 self.SubmitMessage(payload, "application/json", []);
 
