@@ -1,11 +1,11 @@
 # <img src="./img/msb-logo.png" alt="Node.js" /> microServiceBus.com 
 
 ## Application Lifecycle Management
->Managing versions of software running on any number of devices is difficult, especially having multiple environments for testing and production. In this lab, we're going to look into *Application Life Cycle Management*.
+>Managing versions of software running on any number of devices is difficult, especially having multiple environments for testing and production. In this lab, we're going to look into *Application Lifecycle Management*.
 
 
 ### Working with Stage and Production environments
->Most systems today are deployed to multiple environments such as *Dev*, *Stage* and *Prod*, and where we can transition code from one state to the other (and back). In **microServiceBus.com** environments (Stage and Prod) are managed on *Flow* level. 
+>Most systems today are deployed to multiple environments such as *Dev*, *Stage* and *Prod*, and where we can transition code from one state to the other (and back). In **microServiceBus.com**, environments (Stage and Prod) are managed on *Flow* level. 
 
 If this was a real-world solution you'd likely have some *Nodes* is Stage state and many in prod. For arguments sake, let's assume your current *Node* is the Stage node and you'll begin by creating a **Prod** *Node*.
 
@@ -17,13 +17,15 @@ device1-prod
 3. Hit save and navigate back to the *Nodes* page. Click the **ACTIONS** button of your first *Node* (the stage node), and select **Properties**.
 4. In the **Bind to** field, set the name of your production *Node*, and hit *Save*.
 5. Navigate to your *Flow* (you know the drill...)
-6. In the *Details* window, close the designer and click the "Copy to Prod" link.
-7. The page got reloaded and Stage flow got re-opened. Close the designer again and click the "Details" link of the **Production** itinerary.
+6. At the *Details* page, close the designer and click the "Copy to Prod" link.
+7. The page should get reloaded and Stage flow re-opened. Close the designer again and click the "Details" link of the **Production** itinerary.
 8. Double-click any *Service* and notice the Node property is set to your production node.
+>This way we can easily keep working with our *Stage* Flow without disturbing the node in production. Once we've tested the Stage flow, we can re-run the process again.
+
 >Production *Flows* are the same as Stage *Flows* except updates are not deployed automatically  when saving the Flow. Instead, this can be done using [Scheduled updates](https://microservicebus.com/ScheduleMaintenance) or by re-staring the node.
 
 ### Managing your code in Git
->microServiceBus.com supports both GitHub and Visual Studio Team Services (VSTS). For this tutorial the organization has already been integrated with GitHub.
+>microServiceBus.com supports both GitHub and Visual Studio Team Services (VSTS). To simplify things, the organization has already been integrated with GitHub. For more details on how to setup integration with GitHub, visit the [wiki page](https://microservicebus.com/Wiki/View/1046)
 
 1. Create a folder on your laptop, and name it "**git**".
 2. Open the folder from a console or terminal, and type:

@@ -2,6 +2,7 @@
 > This training course will help you discover how the microServiceBus.com works and how you can using to build and manage your IoT solutions.
 
 ## [Prerequisites](./Prerequisites.md): Prepare yourself (tools etc)
+Download and install the tools
 
 ## [Getting started](./GettingStarted.md): Build your first solution
 This mudule will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
