@@ -106,3 +106,6 @@ git push
 8. Remove the existing *CPU Service* from the designer. -Search and drag the updated service from the toolbox to the *Flow*. Connect the new *Service* to the *Azure Event Service**.
 9. Double-click the *CPU Service*, set the *Node* property and click the **Static Property** tab. Notice the new *Interval* property.
 10. Click save to publish the updates to the *Node*.   
+
+
+### [Back to main page](./README.md).
