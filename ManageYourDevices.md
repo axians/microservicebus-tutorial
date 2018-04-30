@@ -48,3 +48,4 @@ restart device1
 
 ## Well done, you've finished lab 2.
 
+### [Back to main page](./README.md).

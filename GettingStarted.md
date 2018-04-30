@@ -157,3 +157,4 @@ You have new created a message and submitting it to the next service.
 11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
 
 ## Well done, you've completed the first lab.
+### [Back to main page](./README.md).

@@ -29,3 +29,5 @@
 >State data referes to things like available memory and storage along with environent variables and CPU information.
 1. Click the **SHOW STATE** button
 2. Evaluate the result.
+
+### [Back to main page](./README.md).

@@ -22,3 +22,5 @@ Git is a version control system that is used for software development and other 
 Create a GitHub account and send it to patrik.sohlman@axians.com. We’ll be covering git integration and will add you to our tutorial repo.
 
 # Looking forward to see you at the course!
+
+### [Back to main page](./README.md).

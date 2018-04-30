@@ -85,3 +85,4 @@ var exports = module.exports = {
       return {idle: totalIdle / cpus.length,  total: totalTick / cpus.length};
     }
 }
+
