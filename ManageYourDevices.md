@@ -33,7 +33,7 @@ From what we can see, the *computer* field seems to be set to the platform rathe
 2. Click the **COPY** button, open a new tab (in chrome), and paste the url into the address field. This opens the Chrome Debug Tool.
 3. Go to the Sources tab. Expand the top item in left pane ("no domain") to see an overwhelming number of files (sorry about that). Scroll down to your script file. Should be something like: *C:\Users\YOU\microServiceBus\services\alexCpuService.js*
 4. Set a breakpoint at approx row 36 (```var computer = os.platform();```) by clicking the row number in the gutter of the editor. Wait a few secons and the breakpoint should hit.
-5. Step to the line by hitting F10, and hover the computer variable and view the value.
+5. Step over the line by hitting F10, and hover the computer variable and view the value.
 
 The problem is that you use ```os.platform()``` rather than ```os.hostname()```. Easy enough to fix. Let's head over to the *Scripts & Services* again. -But first, in *Node* page, make sure to stop debugging before you proceed. 
 
