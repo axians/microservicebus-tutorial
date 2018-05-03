@@ -88,8 +88,9 @@ In this first step you’re going to build an Inbound service that picks up CPU 
 ```
 var startMeasure = self.cpuAverage();
 ```
+And delete the rest of the code inside the function. 
 
-9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, add the following.
+9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following.
 ```
 //Set delay for second Measure
 setTimeout(function () {
@@ -122,7 +123,12 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, we just need to clean up the *payload* and *SubmitMessage* statement that came with the template.
+11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds.
+```
+timerEvent = setInterval(function () {
+[...]
+}, 3000);
+```
 
 [Here](./services/cpuService.js) is complete sample of the service, 
 
