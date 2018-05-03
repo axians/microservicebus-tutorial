@@ -27,7 +27,7 @@ This step will now install an NPM package which will serve as our generic device
 2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel brave.
 >The NPM package from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
 
-3. Still on the Nodes page, click the *“Generate”* button to receive a temporary code.
+3. Now on the Nodes page, click the *“Generate”* button to receive a temporary code.
 4. Navigate to the installation directory using the console/terminal window, and type:
 ```
 cd node_modules/microservicebus.node
