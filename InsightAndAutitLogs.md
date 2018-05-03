@@ -6,7 +6,7 @@
 1. Navigate to the *Nodes* page.
 2. Click the **ACTIONS** button and select **History**
 3. Give it a few seconds, and *Last week events* window should pop up. This shows a graph of all Events (things happend on the *Node*), Audit log (actions taken from the portal), Failed- and successfull transmition of messages.
-4. Closer the *Last week events* window.
+4. Close the *Last week events* window.
 
 >Historic data is not sent to microServiceBus.com, unless requested.
 
