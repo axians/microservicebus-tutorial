@@ -16,7 +16,7 @@
 **...the Management page:**
 1. Navigate to the [Management page](https://microservicebus.com/Instrumentation).
 2. Click the **Audit log** in the top menu.
-3. Expand the "Detail search"
+3. Expand the "Detail search" and click **Add new record**.
 4. Set *Field* to **Identifier** and value to the name of your *Node* and hit the **SEARCH** button.
 5. Evaluate the result.
 
