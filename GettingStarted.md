@@ -130,7 +130,7 @@ timerEvent = setInterval(function () {
 }, 3000);
 ```
 
-[Here](./services/cpuService.js) is complete sample of the service, 
+[Here](./services/cpuService.js) is complete sample of the service. 
 
 
 
