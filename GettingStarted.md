@@ -123,12 +123,14 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save your script.
+11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
 ```
 timerEvent = setInterval(function () {
 [...]
 }, 3000);
 ```
+
+12. Click the green **Save** button at the bottom to save your service and proceed to the next step.
 
 [Here](./services/cpuService.js) is complete sample of the service. 
 
