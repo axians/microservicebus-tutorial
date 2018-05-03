@@ -35,7 +35,7 @@ From what we can see, the *computer* field seems to be set to the platform rathe
 4. Set a breakpoint at approx row 36 (```var computer = os.platform();```) by clicking the row number in the gutter of the editor. Wait a few seconds and the breakpoint should hit.
 5. Step over the line by hitting F10, and hover the **computer** variable and view the value.
 
-The problem is that you use ```os.platform()``` rather than ```os.hostname()```. Easy enough to fix. Let's head over to the *Scripts & Services* again. -But first, in *Node* page, make sure to stop debugging by clicking the **STOP DEBUG** button in the debugging window before you proceed. Go back to the Chrome Debug Tool and hit the resume button.
+The problem is that you use ```os.platform()``` rather than ```os.hostname()```. Easy enough to fix. Let's head over to the *Scripts & Services* again. -But first, in *Node* page, make sure to stop debugging by click on the **STOP DEBUG** button in the debugging window before you proceed. Go back to the Chrome Debug Tool and hit the resume button.
 
 ### Fix issue and Restart Node
 1. Navigate to the *Scripts & Services* page by hitting CTRL + R to get the command prompt. Type "scripts" and hit Enter. 
