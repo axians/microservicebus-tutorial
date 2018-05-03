@@ -90,7 +90,7 @@ var startMeasure = self.cpuAverage();
 ```
 And delete the rest of the code inside the function. 
 
-9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following.
+9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following:
 ```
 //Set delay for second Measure
 setTimeout(function () {
@@ -123,7 +123,7 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Paste the following line of code on line 6 to access the OS library.
+11. Paste the following line of code on line 6 to access the OS library:
 ```
 const os = require('os');
 ```
