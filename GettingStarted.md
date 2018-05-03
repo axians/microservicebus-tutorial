@@ -160,6 +160,7 @@ timerEvent = setInterval(function () {
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
 <img src="./img/gettingstarted2.png" alt="Drawing"/>
 9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
+
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
 11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
