@@ -123,7 +123,7 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds.
+11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save your script.
 ```
 timerEvent = setInterval(function () {
 [...]
