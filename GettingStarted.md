@@ -123,14 +123,18 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
+11. Paste the following line of code on line 6 to access the OS library.
+```
+const os = require('os');
+```
+12. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
 ```
 timerEvent = setInterval(function () {
 [...]
 }, 3000);
 ```
 
-12. Click the green **Save** button at the bottom to save your service and proceed to the next step.
+13. Click the green **Save** button at the bottom to save your service and proceed to the next step.
 
 [Here](./services/cpuService.js) is complete sample of the service. 
 
@@ -163,7 +167,7 @@ timerEvent = setInterval(function () {
 
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
-11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
+11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screen.
 
 ## Well done, you've completed the first lab.
 ### [Back to main page](./README.md).
