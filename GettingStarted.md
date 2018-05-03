@@ -27,7 +27,7 @@ This step will now install an NPM package which will serve as our generic device
 2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel brave.
 >The NPM package from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
 
-3. Still on the Nodes page, click the *“Generate”* button to receive a temporary code.
+3. Now on the Nodes page, click the *“Generate”* button to receive a temporary code.
 4. Navigate to the installation directory using the console/terminal window, and type:
 ```
 cd node_modules/microservicebus.node
@@ -88,8 +88,9 @@ In this first step you’re going to build an Inbound service that picks up CPU 
 ```
 var startMeasure = self.cpuAverage();
 ```
+And delete the rest of the code inside the function. 
 
-9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, add the following.
+9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following:
 ```
 //Set delay for second Measure
 setTimeout(function () {
@@ -122,9 +123,20 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, we just need to clean up the *payload* and *SubmitMessage* statement that came with the template.
+11. Paste the following line of code on line 6 to access the OS library:
+```
+const os = require('os');
+```
+12. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
+```
+timerEvent = setInterval(function () {
+[...]
+}, 3000);
+```
 
-[Here](./services/cpuService.js) is complete sample of the service, 
+13. Click the green **Save** button at the bottom to save your service and proceed to the next step.
+
+[Here](./services/cpuService.js) is complete sample of the service. 
 
 
 
@@ -152,9 +164,10 @@ You have new created a message and submitting it to the next service.
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
 <img src="./img/gettingstarted2.png" alt="Drawing"/>
 9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
+
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
-11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
+11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screen.
 
 ## Well done, you've completed the first lab.
 ### [Back to main page](./README.md).

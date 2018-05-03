@@ -7,7 +7,7 @@
 ### Working with Stage and Production environments
 >Most systems today are deployed to multiple environments such as *Dev*, *Stage* and *Prod*, and where we can transition code from one state to the other (and back). In **microServiceBus.com**, environments (Stage and Prod) are managed on *Flow* level. 
 
-If this was a real-world solution you'd likely have some *Nodes* is Stage state and many in prod. For arguments sake, let's assume your current *Node* is the Stage node and you'll begin by creating a **Prod** *Node*.
+If this was a real-world solution you'd likely have some *Nodes* in Stage state and many in prod. For arguments sake, let's assume your current *Node* is the Stage node and you'll begin by creating a **Prod** *Node*.
 
 1. Navigate to the *Node* page and click **CREATE NODE** or simply hit CTRL+R and type ```create node```.
 2. Give the new *Node* the same name as the first but suffix it with "-prod" Eg.
