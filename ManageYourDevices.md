@@ -31,7 +31,7 @@ From what we can see, the *computer* field seems to be set to the platform rathe
 1. Navigate to the *Node* page. Click the **ACTIONS** button and select **Debug**, then click **START DEBUG**.
 >The *Node* will now get restarted in "Debug mode". Wait a few seconds and you'll be presented a debug url.
 2. Click the **COPY** button, open a new tab (in chrome), and paste the url into the address field. This opens the Chrome Debug Tool.
-3. Expand the top item in left pane ("no domain") to see an overwhelming number of files (sorry about that). Scroll down to your script file. Should be something like: *C:\Users\YOU\microServiceBus\services\alexCpuService.js*
+3. Go to the Sources tab. Expand the top item in left pane ("no domain") to see an overwhelming number of files (sorry about that). Scroll down to your script file. Should be something like: *C:\Users\YOU\microServiceBus\services\alexCpuService.js*
 4. Set a breakpoint at row 34 (```var computer = os.platform();```) by clicking the row number in the gutter of the editor. Wait a few secons and the breakpoint should hit.
 5. Step to the line by hitting F10, and hover the computer variable and view the value.
 
