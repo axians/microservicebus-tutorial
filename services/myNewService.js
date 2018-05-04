@@ -48,7 +48,7 @@ var exports = module.exports = {
         }, 3000); // Triggers every three seconds
     },
     // The Stop method is called from the Node when the Node is 
-    // either stopped or has updated Flows. 
+    // either stopped or has updated Flows.   
     Stop: function () {
         self.Debug('The Stop method is called.');
         // Stop the timerEvent
