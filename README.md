@@ -10,6 +10,10 @@ This module will cover the basics how to create *Nodes*, *Flows* and *Services* 
 ## [Device Management](./ManageYourDevices.md): Manage your devices and IoT Hub
 With our solution up and running, how can we manage the solution, track down and fix issues.
 
+## [Working with Templates](./WorkingWithpolicies.md): Simplify configuration of nodes
+Using *Node Templates* vastly simlify life when creating many nodes.
+
+
 ## [Working with Policies](./WorkingWithpolicies.md): Use policies to manage how your Nodes handle disconnected state
 Disconneced state is common and somthing you need to plan for. Different solutions require different settings of how to handle network disruption.
 
