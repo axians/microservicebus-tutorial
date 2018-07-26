@@ -10,14 +10,18 @@ This module will cover the basics how to create *Nodes*, *Flows* and *Services* 
 ## [Device Management](./ManageYourDevices.md): Manage your devices and IoT Hub
 With our solution up and running, how can we manage the solution, track down and fix issues.
 
+## [Working with Policies](./WorkingWithpolicies.md): Use policies to manage how your Nodes handle disconnected state
+Disconneced state is common and somthing you need to plan for. Different solutions require different settings of how to handle network disruption.
+
+
 ## [Insight and audit logs](./InsightAndAutitLogs.md): Manage your devices and IoT Hub
 Looking through some more options and tools to identify problems.
 
 ## [Application Lifecycle Management](./ApplicationLifecycleManagement.md): Manage your devices and IoT Hub
 Learn how we can manage *Scripts* in Github or VSTS.
 
-## [Integration and advanced tasks](./ManageYourDevices): Manage your devices and IoT Hub 
-This is where we leave the vanilla scenarios and look more into integration with real systems such as ServiceNow, Cisco Jasper, GitHub/VSTS, Application Lifecycle Mgmt, and more.
+## [microServiceBus.com API](./IntegratingWithMicroServiceBus): Integrate with microServiceBus.com API 
+Many solutions recuire extended Device Management tasks to be preformed out-side the microServiceBus.com portal.
 
 #
 ## <img src="./img/actemium-logo.png" alt="Node.js" />
