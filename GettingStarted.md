@@ -8,7 +8,7 @@ The objective is to understand the setup process of the microServiceBus-node and
 In this first lab, you're going to be using your laptop as your device. In later labs we're going to use real devices.
 
 #### Download the device package
-But before we begin, we need to install the microservicebus-node package on to your laptop.
+Before we begin, we need to install the **microservicebus-node** package on to your laptop.
 1. Open a console or terminal, navigate to a working folder and create a directory called *msb*.
 ```
 mkdir msb
