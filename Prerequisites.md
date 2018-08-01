@@ -3,10 +3,10 @@
 Welcome to this *Introduction to microServiceBus.com* course. Before we begin you need to install and familiarize yourself with the tools we’re are going to use throughout this course.
 
 ### <img src="./img/chrome-logo.png" alt="Chrome"/> Chrome
-Google Chrome may or may not be your favorite browser, however you'll be using Chrome Dev Tools in some labs why you should have it installed.
+Google Chrome may or may not be your favorite browser, however you'll be using Chrome Dev Tools in some labs which is why you should have it installed.
 
 ### <img src="./img/nodejs-logo.png" alt="Node.js" /> Node.js
-Browse to https://nodejs.org and download and install the latest stable version of Node.js. Once installed, you should be able to run Node by opening a command prompt/terminal and type **“node”**. You are now in node, and can start typing JavaScript! Try typing ```console.log('Hello from Node.js')``` to verify it works. You can exit by closing the terminal or by hitting **CTRL+C**.
+Browse to https://nodejs.org and download and install the latest stable version of Node.js (LTS). Once installed, you should be able to run Node by opening a command prompt/terminal and type **“node”**. You are now in node, and can start typing JavaScript! Try typing ```console.log('Hello from Node.js')``` to verify it works. You can exit by closing the terminal or by hitting **CTRL+C** twice.
 
 ### <img src="./img/vscode-logo.png" alt="VS Code" /> Visual Studio Code
 
