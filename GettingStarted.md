@@ -45,8 +45,8 @@ The node should startup with no errors:
 ### Create a micro Service
 >Micro services are services that are often generic and independent of other services. They are also, as the name implies, smaller. -They are not as complex as most normal services would be, and they are designed to be more agile. As such they can also be exposed in scenarios where we normally would not see services hosted, such as in devices or circuit, running on a range of platforms. Many ordinary services may qualify as micro services, but a micro service might also be something that turns on your light at home, expose the location of a container or manage configuration of oil rigs.
 
-microServiceBus.com is all about Services, - Services that collects data, Services that sends data or Services that manipulates data. We refer to these services as Inbound, Outbound and other services.
-In this first step you’re going to build an Inbound service that picks up CPU utilization. At the end of the lab we’re going to show the numbers in a Power BI report, together with your colleague’s equivalent values.
+microServiceBus.com is all about Services, - Services that collects data, Services that sends data or Services that manipulates data. We refer to these services as Inbound, Outbound and Other services.
+In this first step you’re going to build an Inbound service that picks up CPU utilization. At the end of the lab we’re going to show the utilization in a Power BI report, together with your colleague’s equivalent values.
 
 1. Begin by navigating to the [Scripts & Services page](https://microservicebus.com/files). Click the **CREATE NEW** button, and then select **CREATE NEW**.
 2. Give your *Service* a unique name since we're all sharing the same organization. Eg: ```Alex CPU Service``` (prefixing with your name to make it unique). 
