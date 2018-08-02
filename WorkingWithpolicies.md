@@ -7,7 +7,7 @@ In this lab you will learn what type of policies that exists for a *node* and wh
 
 1. Navigate to the node page and find your node running on your machine
 
-2. Click the *"Actions"* tab on your node, and find the option "*Preferences*" in the drop-down list.
+2. Click the *"Actions"* tab on your node, and find the option "*Properties*" in the drop-down list.
 3. Navigate to the tab that says *Policies* to be greeted with the *Disconnect policies* options.
 
     Before you start changing the options of the policy on the node, here is a brief explanation for each option:

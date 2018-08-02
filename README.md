@@ -13,7 +13,7 @@ With our solution up and running, how do we manage the solution, track down and 
 ## [Working with Policies](./WorkingWithpolicies.md): Use policies to manage how your Nodes handle disconnected state
 Disconnected state is common and something you need to plan for. Different solutions require different settings of how to handle network disruption.
 
-## [Working with Templates](./WorkingWithpolicies.md): Simplify configuration of nodes
+## [Working with Templates](./WorkingWithTemplates.md): Simplify configuration of nodes
 Using *Node Templates* will vastly simplify life when creating many nodes.
 
 
