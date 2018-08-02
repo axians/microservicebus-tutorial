@@ -13,10 +13,14 @@ A node template is a way of defining what settings your node should have when it
     ### Options for your new template
     * Name
 
-        The name of your template ex *"MQTT-standard"*. Set your own name as the name so you can find it more easily later.
+        The name of your template ex *"MQTT-standard"*. 
+        
+        Set your own name as the name so you can find it more easily later.
     * Default template
 
-        If this option is marked, this template will become your new default template for your organization. Unmark this option so that your template does not become the default for the organization.
+        If this option is marked, this template will become your new default template for your organization.
+        
+        Unmark this option so that your template does not become the default for the organization.
     <hr>
 
     Common
