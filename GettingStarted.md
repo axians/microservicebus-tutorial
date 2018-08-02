@@ -88,7 +88,7 @@ In this first step you’re going to build an Inbound service that picks up CPU 
 ```
 var startMeasure = self.cpuAverage();
 ```
-And delete the rest of the code inside the function. 
+And delete the rest of the code inside the timer interval. 
 
 9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following:
 ```
@@ -147,7 +147,7 @@ timerEvent = setInterval(function () {
 
 >After the *Flow* has been created, a flow designer will appear. On the left you’ll see *Services* grouped in **Inbound-**, **Outbound-** and **Other Services**. Inbound services are services that starts the flow, for example through reading a sensor. Outbound services are generally sending data somewhere else, as to an IoT Hub or a control unit. Sometimes you need to write some custom script for which you can find the Script service among the Other Services category.
 
-2. Start out by dragging your CPU Service from the toolbox (should be found among the *Inbound Services*) to the designer canvas.
+2. Start out by dragging your *CPU Service* from the toolbox (should be found among the *Inbound Services*) to the designer canvas.
 3. Next drag an **Azure IoT Events** service (*Outbound Services*) to the right of the temperature service. 
 4. Attach the *Services* by dragging the *Connector* from your CPU Service to the *Azure IoT Events* Service.
 
@@ -155,7 +155,7 @@ timerEvent = setInterval(function () {
 
 >Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Services* should get deployed to the *Node* running on your laptop.
 
-5. Double-click on *CPU Service in the designer and set the *Node* property to the name of your *Node* Eg. *"device1"*.
+5. Double-click on *CPU Service* in the designer and set the *Node* property to the name of your *Node* Eg. *"device1"*.
 
 >**Static-** and **Security** properties are specific to the *Service* and may differ a lot from one *Service* to the other. We'll look more into *Services* in later labs.
 
@@ -163,7 +163,7 @@ timerEvent = setInterval(function () {
 7. Save the script by clicking the "Save" button.
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
 <img src="./img/gettingstarted2.png" alt="Drawing"/>
-9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
+9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information. 
 
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
