@@ -19,7 +19,7 @@ var exports = module.exports = {
                        this.Run();
                    });
 */
-                    // zwave.healNetwork();
+                    zwave.healNetwork();
                 }, 60000 * 2);
             } else {
                 this.ThrowError(null, '00001', 'Unable to install the openzwave-shared npm package');
