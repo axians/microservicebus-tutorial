@@ -17,7 +17,7 @@ var exports = module.exports = {
 
                     self.Stop(function () {
                         self.Debug('Starting')
-                        this.Run();
+                        self.Run();
                     });
 
                     //zwave.healNetwork();
@@ -81,7 +81,7 @@ var exports = module.exports = {
         let ZWave = require('openzwave-shared');
         let driverpath = self.GetPropertyValue('static', 'driverpath');
         zwave = new ZWave({
-            ConsoleOutput: false,
+            ConsoleOutput: true,
             //driverattempts: 100,
         });
 
