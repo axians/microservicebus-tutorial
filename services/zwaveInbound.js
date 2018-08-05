@@ -14,8 +14,8 @@ var exports = module.exports = {
                 startupInterval = setInterval(function () {
                     self.Debug('Restarting')
                     let driverpath = self.GetPropertyValue('static', 'driverpath');
-                    zwave.disconnect(driverpath);
-                    zwave.softReset();
+                    // zwave.disconnect(driverpath);
+                    // zwave.softReset();
                     zwave.connect(driverpath);
                     // self.Stop(function () {
                     //     self.Debug('Starting')
