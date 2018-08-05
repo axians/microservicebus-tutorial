@@ -13,13 +13,14 @@ var exports = module.exports = {
             if (!err) {
                 self.Run();
                 startupInterval = setInterval(function () {
-                    self.Debug('healNetwork...')
-                    /*
-                   self.Stop(function(){
-                       this.Run();
-                   });
-*/
-                    zwave.healNetwork();
+                    self.Debug('Restarting')
+
+                    self.Stop(function () {
+                        self.Debug('Starting')
+                        this.Run();
+                    });
+
+                    //zwave.healNetwork();
                 }, 60000 * 2);
             } else {
                 this.ThrowError(null, '00001', 'Unable to install the openzwave-shared npm package');
@@ -30,14 +31,19 @@ var exports = module.exports = {
 
     Stop: function (callback) {
         let driverpath = self.GetPropertyValue('static', 'driverpath');
+        scanComplete = false;
+
         if (zwave) {
             zwave.disconnect(driverpath);
             zwave = null;
         }
-        if (!callback && startupInterval)
+        if (startupInterval) {
             clearInterval(startupInterval);
+        }
 
-        scanComplete = false;
+        if (callback) {
+            callback();
+        }
     },
 
     Process: function (state, context) {
@@ -128,7 +134,7 @@ var exports = module.exports = {
             let switchNodes = {};
             for (let n = 0; n < nodes.length; n++) {
                 if (nodes[n] && nodes[n].classes[37]) {
-                    if(!self.Com.currentState.desired.switches){
+                    if (!self.Com.currentState.desired.switches) {
                         self.Debug("No switches set in state");
                         self.Com.currentState.desired.switches = {};
                     }
