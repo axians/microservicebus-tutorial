@@ -16,13 +16,12 @@ var exports = module.exports = {
                     let driverpath = self.GetPropertyValue('static', 'driverpath');
                     // zwave.disconnect(driverpath);
                     // zwave.softReset();
-                    zwave.connect(driverpath);
+                    //zwave.connect(driverpath);
                     // self.Stop(function () {
                     //     self.Debug('Starting')
                     //     self.Run();
                     // });
-
-                    //zwave.healNetwork();
+                    zwave.healNetwork();
                 }, 60000 * 2);
                 self.Run();
 
