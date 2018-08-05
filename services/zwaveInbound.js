@@ -13,12 +13,11 @@ var exports = module.exports = {
             if (!err) {
                 self.Run();
                 startupInterval = setInterval(function () {
-                    self.Debug('Restarting')
-
-                    self.Stop(function () {
-                        self.Debug('Starting')
-                        self.Run();
-                    });
+                    // self.Debug('Restarting')
+                    // self.Stop(function () {
+                    //     self.Debug('Starting')
+                    //     self.Run();
+                    // });
 
                     //zwave.healNetwork();
                 }, 60000 * 2);
