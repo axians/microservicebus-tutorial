@@ -11,7 +11,6 @@ var exports = module.exports = {
         this.AddNpmPackage('openzwave-shared@1.4.5', true, function (err) {
             self.Debug('openzwave-shared installed');
             if (!err) {
-                self.Run();
                 startupInterval = setInterval(function () {
                     self.Debug('Restarting')
                     let driverpath = self.GetPropertyValue('static', 'driverpath');
@@ -25,6 +24,8 @@ var exports = module.exports = {
 
                     //zwave.healNetwork();
                 }, 60000 * 2);
+                self.Run();
+
             } else {
                 this.ThrowError(null, '00001', 'Unable to install the openzwave-shared npm package');
                 return;
