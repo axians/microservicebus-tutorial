@@ -13,7 +13,11 @@ var exports = module.exports = {
             if (!err) {
                 self.Run();
                 startupInterval = setInterval(function () {
-                    // self.Debug('Restarting')
+                    self.Debug('Restarting')
+                    let driverpath = self.GetPropertyValue('static', 'driverpath');
+                    zwave.disconnect(driverpath);
+                    zwave.softReset();
+                    zwave.connect(driverpath);
                     // self.Stop(function () {
                     //     self.Debug('Starting')
                     //     self.Run();
