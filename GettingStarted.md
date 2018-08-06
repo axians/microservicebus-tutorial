@@ -30,7 +30,7 @@ This step will now install an NPM package which will serve as our generic device
 3. Now on the Nodes page, click the *“Generate”* button to receive a temporary code.
 4. Navigate to the installation directory using the console/terminal window, and type:
 ```
-cd node_modules/microservicebus.node
+cd node_modules/microservicebus-node
 ```
 5. Provition your *Node* using the code from step 2 and the name of your *Node*, Eg:
 ```
