@@ -19,7 +19,7 @@ var exports = module.exports = {
                     //zwave.connect(driverpath);
                     // self.Stop(function () {
                     //     self.Debug('Starting')
-                    //     self.Run();
+                    //     self.Run(); 
                     // });
                     zwave.healNetwork();
                 }, 60000 * 2);
