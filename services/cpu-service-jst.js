@@ -24,7 +24,7 @@ var exports = module.exports = {
         // scheduled interval. In this case every 10 seconds.
         timerEvent = setInterval(function () {
 
-            var startMeasure = self.cpuAverage();
+            var startMeasure = self.cpuAverage(); 
             
             //Set delay for second Measure
             setTimeout(function () {
