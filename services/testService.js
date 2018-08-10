@@ -13,7 +13,7 @@
             "visible": true,
             "acceptableValues": []
         },
-    {
+        {
             "category": null,
             "id": "patrikssss",
             "order": 1,
@@ -29,6 +29,8 @@
     }
 }
 #ENDCONFIG*/
+
+// TESTING
 var timerEvent;
 var self;
 
