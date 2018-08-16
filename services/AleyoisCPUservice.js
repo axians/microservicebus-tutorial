@@ -11,11 +11,12 @@ var exports = module.exports = {
     // implement your code to fetch the data and submit the message
     // back to the host.
     Start: function () {
-        self = this;
-        _debug
-        _staticprop
-        interval
-        Started
+        self = this; 
+//        _debug //canvi#1  16/08 14:55
+//        _staticprop
+//        interval
+//        Started
+                
         this.Debug("Started");
         
         timerEvent = setInterval(function () {
@@ -45,7 +46,7 @@ var exports = module.exports = {
                 self.Debug("Submitted reading");
             
             }, 100);
-        }, interval); // Triggers every three seconds
+        }, 3000); // Triggers every three seconds
     },
     // The Stop method is called from the Node when the Node is 
     // either stopped or has updated Flows. 
