@@ -13,6 +13,8 @@ var exports = module.exports = {
     Start: function () {
         self = this;
         self.Debug('Started');
+       // self.Debug('Started');
+        
         let  = this.GetPropertyValue('static', 'interval');
         
         this.Debug("Started");
