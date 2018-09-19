@@ -17,7 +17,7 @@ We are going to follow a series of steps to identify and resolve this issue:
 
 1. Navigate to the *Nodes* page, and click the **Tracking** toggle-button for your *Node*. Observe in the console/terminal window that is says:  ```mSB: Tracking: enabled```.
 2. Navigate to the [Management page](https://microservicebus.com/Instrumentation), and click *Tracking* from the top menu.
-3. Expand the "Detailed search" pane by clicking on it. Click the "Add new record" button. Let the *Property* field be "Node" and set the "Value" field to the name of your *Node* and click **Serach**.
+3. Expand the "Detailed search" pane by clicking on it. Click the "Add new record" button. Let the *Property* field be "Node" and set the "Value" field to the name of your *Node* and click **Search**.
 4. Click **View details** of second or third records in the list.
 >Tracking details are being streamed as they are executed and if you take the first in the list (the last event), it might not be competed, hence you might not get all the details.
 5. The *Tracking Details* window shows you all the events that has happened on this instance of the flow. -Click the *View itinerary* button for the **Completed** event.
