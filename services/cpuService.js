@@ -1,6 +1,6 @@
 /* 
  * Service template for node.js
- * This is edited from VS CODE by Poja
+ * 
  * To use this template, simply add your code in Start and Stop method
 */
 var timerEvent; // In case you use a timer for fetching data
@@ -12,11 +12,7 @@ var exports = module.exports = {
     // back to the host.
     Start: function () {
         self = this;
-    
-        
         this.Debug("Started");
-        let interval = this.GetPropertyValue('static', 'interval');
-        
         
         timerEvent = setInterval(function () {
 
