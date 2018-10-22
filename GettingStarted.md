@@ -8,7 +8,7 @@ The objective is to understand the setup process of the microServiceBus-node and
 In this first lab, you're going to be using your laptop as your device. In later labs we're going to use real devices.
 
 #### Download the device package
-But before we begin, we need to install the microservicebus-node package on to your laptop.
+Before we begin, we need to install the **microservicebus-node** package on to your laptop.
 1. Open a console or terminal, navigate to a working folder and create a directory called *msb*.
 ```
 mkdir msb
@@ -27,10 +27,10 @@ This step will now install an NPM package which will serve as our generic device
 2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel brave.
 >The NPM package from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
 
-3. Still on the Nodes page, click the *“Generate”* button to receive a temporary code.
+3. Now on the Nodes page, click the *“Generate”* button to receive a temporary code.
 4. Navigate to the installation directory using the console/terminal window, and type:
 ```
-cd node_modules/microservicebus.node
+cd node_modules/microservicebus-node
 ```
 5. Provition your *Node* using the code from step 2 and the name of your *Node*, Eg:
 ```
@@ -45,8 +45,8 @@ The node should startup with no errors:
 ### Create a micro Service
 >Micro services are services that are often generic and independent of other services. They are also, as the name implies, smaller. -They are not as complex as most normal services would be, and they are designed to be more agile. As such they can also be exposed in scenarios where we normally would not see services hosted, such as in devices or circuit, running on a range of platforms. Many ordinary services may qualify as micro services, but a micro service might also be something that turns on your light at home, expose the location of a container or manage configuration of oil rigs.
 
-microServiceBus.com is all about Services, - Services that collects data, Services that sends data or Services that manipulates data. We refer to these services as Inbound, Outbound and other services.
-In this first step you’re going to build an Inbound service that picks up CPU utilization. At the end of the lab we’re going to show the numbers in a Power BI report, together with your colleague’s equivalent values.
+microServiceBus.com is all about Services, - Services that collects data, Services that sends data or Services that manipulates data. We refer to these services as Inbound, Outbound and Other services.
+In this first step you’re going to build an Inbound service that picks up CPU utilization. At the end of the lab we’re going to show the utilization in a Power BI report, together with your colleague’s equivalent values.
 
 1. Begin by navigating to the [Scripts & Services page](https://microservicebus.com/files). Click the **CREATE NEW** button, and then select **CREATE NEW**.
 2. Give your *Service* a unique name since we're all sharing the same organization. Eg: ```Alex CPU Service``` (prefixing with your name to make it unique). 
@@ -88,8 +88,9 @@ In this first step you’re going to build an Inbound service that picks up CPU 
 ```
 var startMeasure = self.cpuAverage();
 ```
+And delete the rest of the code inside the timer interval. 
 
-9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, add the following.
+9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following:
 ```
 //Set delay for second Measure
 setTimeout(function () {
@@ -122,9 +123,20 @@ self.Debug("Submitted reading");
 ```
 You have new created a message and submitting it to the next service.
 
-11. Before you're done, we just need to clean up the *payload* and *SubmitMessage* statement that came with the template.
+11. Paste the following line of code on line 6 to access the OS library:
+```
+const os = require('os');
+```
+12. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
+```
+timerEvent = setInterval(function () {
+[...]
+}, 3000);
+```
 
-[Here](./templates/cpuService.js) is complete sample of the service, 
+13. Click the green **Save** button at the bottom to save your service and proceed to the next step.
+
+[Here](./services/cpuService.js) is complete sample of the service. 
 
 
 
@@ -135,7 +147,7 @@ You have new created a message and submitting it to the next service.
 
 >After the *Flow* has been created, a flow designer will appear. On the left you’ll see *Services* grouped in **Inbound-**, **Outbound-** and **Other Services**. Inbound services are services that starts the flow, for example through reading a sensor. Outbound services are generally sending data somewhere else, as to an IoT Hub or a control unit. Sometimes you need to write some custom script for which you can find the Script service among the Other Services category.
 
-2. Start out by dragging your CPU Service from the toolbox (should be found among the *Inbound Services*) to the designer canvas.
+2. Start out by dragging your *CPU Service* from the toolbox (should be found among the *Inbound Services*) to the designer canvas.
 3. Next drag an **Azure IoT Events** service (*Outbound Services*) to the right of the temperature service. 
 4. Attach the *Services* by dragging the *Connector* from your CPU Service to the *Azure IoT Events* Service.
 
@@ -143,7 +155,7 @@ You have new created a message and submitting it to the next service.
 
 >Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Services* should get deployed to the *Node* running on your laptop.
 
-5. Double-click on *CPU Service in the designer and set the *Node* property to the name of your *Node* Eg. *"device1"*.
+5. Double-click on *CPU Service* in the designer and set the *Node* property to the name of your *Node* Eg. *"device1"*.
 
 >**Static-** and **Security** properties are specific to the *Service* and may differ a lot from one *Service* to the other. We'll look more into *Services* in later labs.
 
@@ -151,9 +163,11 @@ You have new created a message and submitting it to the next service.
 7. Save the script by clicking the "Save" button.
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
 <img src="./img/gettingstarted2.png" alt="Drawing"/>
-9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information (every 5 seconds). 
+9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information. 
+
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).
 
-11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screan.
+11. As your readings are getting published to the Azure IoT hub, they should get visible on the main screen.
 
 ## Well done, you've completed the first lab.
+### [Back to main page](./README.md).
