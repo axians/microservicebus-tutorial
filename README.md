@@ -4,6 +4,10 @@
 ## [Prerequisites](./Prerequisites.md): Prepare yourself (tools etc)
 Download and install the tools
 
+<hr/>
+
+# DAY 1
+
 ## [Getting started](./GettingStarted.md): Build your first solution
 This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
 
@@ -25,6 +29,29 @@ Learn how we can manage *Scripts* in GitHub or VSTS.
 
 ## [microServiceBus.com API](./IntegratingWithMicroServiceBus.md): Integrate with microServiceBus.com API 
 Many solutions require extended Device Management tasks to be preformed out-side the microServiceBus.com portal.
+
+<hr/>
+
+# DAY 2
+
+## [Create an Azure IoT Hub](./Day_2_Create_IoT_Hub.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
+## [Create a microServiceBus Organization](./Day_2_Create_mSB_Org.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
+## [Integrate with Cisco Jasper](./Day_2_Integration_Cisco_Jasper.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
+## [Receive whitelist through state](./Day_2_Receive_whitelist_through_state.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
+## [Read telegrams from sensors and send to cloud](./Day_2_Read_telegrams_from_sensors_and_send_to_cloud.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
+## [Create Azure Event Hub and Time Series Insight](./Day_2_Integrate_with_tsi.md): Build your first solution
+This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+
 
 #
 ## <img src="./img/actemium-logo.png" alt="Node.js" />
