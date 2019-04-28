@@ -69,6 +69,10 @@ Wireless MBus sensors broadcasts data to whomever care to listen and are not pai
 
 5. Click the save, and navigate Console output window and verify the gateway receives the new state.
 
+> Feel free to update the state using the Azure portal as well, where you should expect the same result
+
+> You may also update the state using microServiceBus.API, which might come very handy if you'd like other applications to manage the whitelists.
+
 
 
 
