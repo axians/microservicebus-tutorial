@@ -4,14 +4,15 @@
 
 ## Configure Integration
 
-1. Navigate to [your Organization](https://microservicebus.com/Organizations).
+1. Navigate to [your Organization](https://microservicebus.com/Organizations/Details). At the bottom of the page, click *EDIT*
 
-2. Set *Instance*, *User name* and *REST API key* as provided by your trainer.
+2. Scroll down to the "Cisco Jasper" section and set *Instance*, *User name* and *REST API key* as provided by your trainer.
 
-3. At the bottom of the page, click on *Edit*. Scroll to the bottom and copy the "API address" for Cisco Jasper.
-> The API address refers to the end point of the Cisco Jasper will call upon the SIM card state change.
+3. Copy the "API address" for Cisco Jasper.
 
-4. Email the API address to your trainer who will update Cisco Jasper. 
+> The API address refers to the endpoint that Cisco Jasper will call upon the SIM card state change.
+
+4. Email the API address to your trainer who will update Cisco Jasper with an Automation Rule to call your endpoint when the SIM card state changes. 
 
 ## Provision your Gateway
 

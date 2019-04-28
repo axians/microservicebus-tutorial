@@ -25,11 +25,11 @@
 2. From the *ACTION* button of your *Node*, select *Properties*.
 3. Click the **AUDIT LOG** button.
 
-## State data
->State data referes to things like available memory and storage along with environent variables and CPU information.
+## Environment data
+> Environment data refers to things like available memory and storage along with environment variables and CPU information.
 1. Navigate to the [Nodes page](https://microservicebus.com/Nodes).
 2. From the *ACTION* button of your *Node*, select *Properties*.
-3. Click the **SHOW STATE** button
+3. Click the **ENVIRONMENT** button
 4. Evaluate the result.
 
 ### [Back to main page](./README.md).
