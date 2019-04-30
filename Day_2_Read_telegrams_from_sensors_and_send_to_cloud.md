@@ -80,10 +80,10 @@ As you could see in the previous step, the telegram is quite extensive and holds
 ```javascript
 // Transforming the message to a more compact format
 message = {
-    sensorId: message.sensorId,
-    temperature: message.telegram.datablocks[0].value,
-    unit: message.telegram.datablocks[0].unit,
-    ts: this.GetLocalTime()
+    deviceId : message.deviceId,
+    temperature : message.telegram.datablocks[0].value,
+    unit : message.telegram.datablocks[0].unit,
+    ts : this.GetLocalTime()
 }
 
 // For Console output
