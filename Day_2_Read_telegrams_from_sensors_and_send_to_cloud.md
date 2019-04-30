@@ -7,8 +7,8 @@ To complete this lab, you're going to first read and parse the telegrams from se
 
 ## Read and parse telegrams from serial port
 
-1. To read and distinguish each telegram on the serial port we need a Wireless M-Bbus Service. Open your already created Flow and add an **enQube Wireless MBus Reader** from the Inbound section of the toolbox to your canvas.
-2. Open the **enQube Wireless MBus Reader** Service property window and set the *Node* property to the name of your Node. Click the *Static Properties" tab and make sure the properties are set as below
+1. To read and distinguish each telegram on the serial port we need a Wireless M-Bbus Service. Open your already created Flow and add an **enQube Wireless MBus Reader** from the Inbound section of the toolbox to your canvas. 
+2. Open the **enQube Wireless MBus Reader** Service property window and set the *Node* property to the name of your Node. Give it a *Name* such as "wmbusReader". Click the *Static Properties" tab and make sure the properties are set as below
 
 | Property | Value |
 |-------|--------|
@@ -18,7 +18,7 @@ To complete this lab, you're going to first read and parse the telegrams from se
 | **Stop bits** | 1 |
 | **Parity** | none |
 
-3. Add a **Console Out** Service to the right of the **enQube Wireless MBus Reader** Service and connect the two Services.
+3. Add a **Console Out** Service to the right of the **enQube Wireless MBus Reader** Service and connect the two Services. 
 4. Save the Flow, and navigate to the [Nodes page](https://microservicebus.com/Nodes), and toggle the *Console* for the Node.
 5. Navigate to the [Console page](https://microservicebus.com/console) and examine the output. Note that you get messages with the Header information, such as manufacture, version, type and deviceId are visible, along with the raw telegram.
 
@@ -26,9 +26,10 @@ To complete this lab, you're going to first read and parse the telegrams from se
 With telegrams being read, it's time to make use of the whitelist to filter out the ones we care about.
 
 1. Remove the connection between the **enQube Wireless MBus Reader** and the **Console Out** Service, and more the **Console Out** Service to the right.
-3. Add a **JavaScript** Service from the toolbox (*Other Services*) and place it to the right of the **enQube Wireless MBus Reader**, and connect the three Services as the picture below:
+3. Add a **JavaScript** Service from the toolbox (*Other Services*) and place it to the right of the **enQube Wireless MBus Reader**. Give it a *Name* such as "filterWhitelist",  and connect the three Services as the picture below:
 
-<img src="./img/read-telegrams-1.png">
+<img src="./img/read-telegrams-1.png"/>
+
 
 4. Right-click the **JavaScript** Service and select *Script*. Add the following code to check if the telegram is part of the whitelist:
 
@@ -46,13 +47,60 @@ else{ // Pass it through if exists
 ```
 *If the telegram is not found in the whitelist, the function above will set the message to 'false'*. 
 
-5. The **JavaScript** Service will either pass the message or 'false' if not part of the whitelist. We'll use this to only proceed if the message is not false. Double-click the routing expression ("true") between the **JavaScript** Service and the **Console Out** Service. In the editor, update the routing condition as:
+5. The **JavaScript** Service will either pass the telegram message or 'false' if not part of the whitelist. We'll use this to only proceed if the message is not false. Double-click the routing expression ("true") between the **JavaScript** Service and the **Console Out** Service. In the editor, update the routing condition as:
 
 ```javascript
 var route = message;
 ```
 
-6. Save the Flow, and examine the output.
+6. Save the Flow, and examine the Console output.
 
-2. Grab an **Wireless MBus Parser** from the toolbox (*Other Services*) and place it to the right of the **enQube Wireless MBus Reader**. Connect the Reader with the parser.
+## Parse the raw telegram to JSON
 
+1. Disconnect the  the **Console Out** Service, and add an **enQube Wireless MBus Parser**. Give it a *Name* such as "wmbusParser".
+
+2. Connect the "filterWhitelist" **JavaScript** Service to the **enQube Wireless MBus Parser** and then the parser to the **Console Out** Service.
+
+3. Set the route of the **enQube Wireless MBus Parser** as you did in step 5 in the previous section, to avoid telegrams that is not part of the whitelist.  
+
+4. Save the Flow, and examine the Console output.
+
+> *[JsonViewer](http://jsonviewer.stack.hu/) is a pretty sweet tool to view resonbly big JSON payload. In the Console output, toggle off the *Format JSON*. Copy the JSON output to [JsonViewer](http://jsonviewer.stack.hu/) and use the treeview to examine the telegram.*
+
+## Map the WMBus payload to a common format 
+
+As you could see in the previous step, the telegram is quite extensive and holds much more data than we care for. In this step you're going to transform the data to a common format using only part of the original telegram.
+
+1. Remove the **Console Out** Service and replace it with another **JaveScript** Service. Name the Service "transforData". Open up the script editor and paste the code below:
+
+```javascript
+message = {
+    sensorId: message.sensorId,
+    temperature: message.telegram.datablocks[0].value,
+    unit: message.telegram.datablocks[0].unit,
+    ts: this.GetLocalTime()
+}
+
+this.Debug(JSON.stringify(message));
+```
+> *Note the *this.GetLocalTime()* function. This is one of many built-in functions that will return the current datetime based on the Nodes timezone which you can set in the properties of the Node.*
+
+2. Close the editor and save the Flow, and examine the Console output.
+
+## Send WMBus telegram to Azure IoT Hub
+
+You're finally ready to send your readings to the Azure IoT Hub. 
+1. Add an **Azure IoT Events** Service after the "transforData" Service, and connect them.
+
+Although it would not be necessary to enable IoT Hub routing for this solution to work, -in reality you're are likely to use the same IoT Hub for a number of different scenarios. It would then be essential to separate the processing of one type of payload from another. In this lab you only have *temperature* readings, but you could imagine there be many others in the future.
+
+For the purpose of enabling IoT Hub routing, you are going to add a *meta data variable* to the message sent to the Azure IoT Hub. There are a few different ways to add meta data, but it's worth knowing that the **Azure IoT Events** will put all content properties and *Variables* that is not of type *Object* into the meta data section of the Azure IoT Event sent to the IoT Hub. So the easiest way to add a value we'd like to use for routing is to add a *Variable*.
+
+2. Open the *Variables* dialog by clicking the **VARIABLES** button.
+3. Add a **String** variable called "tempReadings".
+
+
+**Your finished Flow should look something like this:**
+<img src="./img/read-telegrams-2.png"/>
+
+4. Save the flow and proceed to [Create Azure Event Hub and Time Series Insight](./Day_2_Integrate_with_tsi.md)
