@@ -81,5 +81,8 @@ this.Debug("Whitelist has been updated")
 > **TIP!** You may also update the state using microServiceBus.API, which might come very handy if you'd like other applications to manage the whitelists.
 
 
+Proceed to [Read telegrams from sensors and send to cloud](./Day_2_Read_telegrams_from_sensors_and_send_to_cloud.md)
+
+
 
 
