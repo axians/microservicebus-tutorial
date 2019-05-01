@@ -17,7 +17,7 @@ Optionally install the [mSB extension ](https://marketplace.visualstudio.com/ite
 
 ### <img src="https://microservicebus.blob.core.windows.net/sample/postman.png" alt="Postman"/> Postman
 
-In some of the labs, we’re going to build Web API’s, and **Postman** is an excellent tool to use for testing those services. Postman is a Chrome extension and can be installed by opening Chrome and navigate to [Add extension](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en-US.) and install Postman. 
+In some of the labs, we’re going to call Web API’s, and **Postman** is an excellent tool to use for testing those services. Postman is be downloaded and installed from [here](https://www.getpostman.com/downloads/). 
 
 ### <img src="./img/github-logo.png"/> GitHub Account
 Git is a version control system that is used for software development and other version control tasks. -Every developer with pride should have it installed. 
