@@ -51,6 +51,6 @@ Press save and you have now set up a custom route for your telemetry messages, g
     | **Event Hub Consumer group** | Default |
     | **Property name** | ts |
 
-    Press review and create to start deployment of your TSI-instance. Once deployment is done, navigate to your TSI instance and press the button *Go to Environment*. Here you will find loads of tools to play around with the data you are currently sending. Good job on completing all the labs and let your creativity flow to view the data to maximize business value ;)
+    Press review and create to start deployment of your TSI-instance. Once deployment is done, navigate to your TSI instance and press the button *Go to Environment*. Try figuring out how your query should look to view some data. Here you will also find loads of tools to play around with the data you are currently sending. Good job on completing all the labs and let your creativity flow to view the data to maximize business value ;)
     
 
