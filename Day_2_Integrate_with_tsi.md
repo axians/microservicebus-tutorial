@@ -8,12 +8,12 @@ To complete this lab, you will need to route your messages to an Event Hub, whic
 
 You will need an Event Hub for you to be able to route your messages. By adding an Event Hub to your subscription, TSI will be able to consume from that.
 
-1. Create a Event Hub namespace in your resource group and name it something along the lines of "*msb-tutorial-eh-namespace*". Choose the lowest pricing tier and put it in the subscription and region of your preference.
-2. Navigate to your newly created namespace and add an Event Hub. Name it to something along the lines of "*temperature-readings*" and keep everything else as Default. You now have an Event Hub that you can route data to.
+1. Create an **Event Hub** namespace in your resource group and name it something along the lines of "*msb-tutorial-eh-namespace*". Choose the lowest pricing tier and put it in the subscription and region of your preference.
+2. Navigate to your newly created namespace and add an **Event Hub**. Name it to something along the lines of "*temperature-readings*" and keep everything else as Default. You now have an Event Hub that you can route data to.
 
 ## Add a messaging route to your IoT-Hub
 
-1. Navigate to your IoT-hub in your resource group. Go to message routing and add a route. Name it according to what you will route for example *temperature_readings*.
+1. Navigate to your IoT-hub in your resource group. Go to **message routing** and add a route. Name it according to what you will route for example *temperature_readings*.
 2. You will need to add an endpoint as your IoT-hub currently does not have any. Choose *Event Hubs* and name the endpoint something similar as your route. Pick the Namespace and Event Hub as what you created in the previos step. Keep data source as the default option.
 3. Now it is time to add your routing query. Everything that matches this query will be sent to the Event Hub Endpoint you just created.
 
@@ -33,8 +33,8 @@ Press save and you have now set up a custom route for your telemetry messages, g
     | Property | Value |
     |-------|--------|
     | **Environment name** | msb-tutorial |
-    | **Subscription** | Axians IoT Nordic |
-    | **Resource group** | microServiceBus-Tutorial |
+    | **Subscription** | [Your subscription] |
+    | **Resource group** | [Your resource group]] |
     | **Location** | West Europe |
 
     Keep the rest of the options untouched and navigate to *Next:Event Source*
