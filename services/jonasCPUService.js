@@ -1,4 +1,4 @@
-/* 
+/* test
  * Service template for node.js
  * 
  * To use this template, simply add your code in Start and Stop method
