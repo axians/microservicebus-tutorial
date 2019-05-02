@@ -4,10 +4,17 @@ Now that you are sending temperature readings to the cloud, it is time to do som
 
 To complete this lab, you will need to route your messages to an Event Hub, which will then forward the messages to a Time Series Insight instance that you will create. Lastly you will look at some ways of viewing the data in TSI.
 
+## Add an Event Hub to route your messages to
+
+You will need an Event Hub for you to be able to route your messages. By adding an Event Hub to your subscription, TSI will be able to consume from that.
+
+1. Create a Event Hub namespace in your resource group and name it something along the lines of "*msb-tutorial-eh-namespace*". Choose the lowest pricing tier and put it in the subscription and region of your preference.
+2. Navigate to your newly created namespace and add an Event Hub. Name it to something along the lines of "*temperature-readings*" and keep everything else as Default. You now have an Event Hub that you can route data to.
+
 ## Add a messaging route to your IoT-Hub
 
 1. Navigate to your IoT-hub in your resource group. Go to message routing and add a route. Name it according to what you will route for example *temperature_readings*.
-2. You will need to add an endpoint as your IoT-hub currently does not have any. Choose *Event Hubs* and name the endpoint something similar as your route. Pick the *msb-tutorial* as your Event Hub Namespace and choose the only existing event hub. Keep data source as the default option.
+2. You will need to add an endpoint as your IoT-hub currently does not have any. Choose *Event Hubs* and name the endpoint something similar as your route. Pick the Namespace and Event Hub as what you created in the previos step. Keep data source as the default option.
 3. Now it is time to add your routing query. Everything that matches this query will be sent to the Event Hub Endpoint you just created.
 
 Add the following query that correlates to the *mt* you set in your flow the previous lab.
@@ -39,7 +46,7 @@ Press save and you have now set up a custom route for your telemetry messages, g
     | **Name** | temperature-readings |
     | **Source type** | Event Hub |
     | **Select a hub** | Select existing |
-    | **Event hub namespace** | msb-tutorial |
+    | **Event hub namespace** | [Your created event hub namespace]] |
     | **Event Hub access policy name** | RootManageSharedAccessKey |
     | **Event Hub Consumer group** | Default |
     | **Property name** | ts |
