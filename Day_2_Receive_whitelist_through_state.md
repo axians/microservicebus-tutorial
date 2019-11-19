@@ -6,7 +6,7 @@ Both Azure and Amazon IoT Hub has what is referred to as *Device Twin* and *Thin
 * **reported** -*Can only be changed with **Device** privilages*
 
 
-If we'd imagen a gateway controlling some kind of machine, we might want to steer it by setting the **throttle** from our cloud application, while we'd expect the gateway to report the **RMP** (revolutions per minute). In this case, we could have a **state** that looked similar to this:
+If we'd imagen a gateway controlling some kind of machine, we might want to steer it by setting the **throttle** from our cloud application, while we'd expect the gateway to report the **RPM** (revolutions per minute). In this case, we could have a **state** that looked similar to this:
 ```json
 {
     "properties": {
