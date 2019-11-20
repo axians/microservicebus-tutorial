@@ -35,23 +35,25 @@ Many solutions require extended Device Management tasks to be preformed out-side
 # DAY 2
 
 ## [Create an Azure IoT Hub](./Day_2_Create_IoT_Hub.md)
-This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+This module will take you through the process of creating an IoT Hub in Azure.
 
 ## [Create a microServiceBus Organization](./Day_2_Create_mSB_Org.md)
-This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+Create your own Organization to keep your *Nodes*, *Flows* and *Services*.
 
 ## [Integrate with Cisco Jasper](./Day_2_Integration_Cisco_Jasper.md)
-This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+Learn how to provision gateways using the integration with Cisco Jasper.
 
 ## [Receive whitelist through state](./Day_2_Receive_whitelist_through_state.md)
-This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+Working with device state will enable you to separate your code and configuration.
 
 ## [Read telegrams from sensors and send to cloud](./Day_2_Read_telegrams_from_sensors_and_send_to_cloud.md)
-This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
+Learn how to capture WM-bus telegrams, transform and transmit them to the cloud.
 
 ## [Create Azure Event Hub and Time Series Insight](./Day_2_Integrate_with_tsi.md)
 This module will cover the basics how to create *Nodes*, *Flows* and *Services* into a complete solution.
 
+## [Site verification](./Day_2_Site-verification.md)
+Learn how you can verify that a gateway along with meters and equipment is correctly installed at site.
 
 #
 ## <img src="./img/actemium-logo.png" alt="Node.js" />
