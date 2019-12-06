@@ -12,6 +12,9 @@ var exports = module.exports = {
     // back to the host.
     Start: function () {
         self = this;
+        self.Debug('Started');
+        let interval = this.GetPropertyValue('static', 'interval');
+
         this.Debug("Started");
         
         timerEvent = setInterval(function () {
@@ -45,7 +48,7 @@ var exports = module.exports = {
             
             }, 100);
 
-        }, 3000); // Triggers every three seconds
+        }, interval); // Triggers every three seconds
     },
     // The Stop method is called from the Node when the Node is 
     // either stopped or has updated Flows. 
