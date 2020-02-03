@@ -3,6 +3,7 @@
  *
  * To use this template, simply add your code in Start and Stop method
 */
+
 const os = require('os');
 var timerEvent; // In case you use a timer for fetching data
 var self;
