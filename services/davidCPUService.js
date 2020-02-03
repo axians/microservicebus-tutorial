@@ -15,6 +15,7 @@ var exports = module.exports = {
         _debug
         _staticprop
         
+       // console.log();
 
         // The timer event is used for creating message on a
         // scheduled interval. In this case every 10 seconds.
