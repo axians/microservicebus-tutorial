@@ -18,29 +18,27 @@ cd msb
 ```
 npm install microservicebus-node
 ```
-This step will now install an NPM package which will serve as our generic device application. **Don't wait for the package to complete, just continue with the step**.
+This step will now install an NPM package which will serve as our generic device application. **Don't wait for the package to complete, just continue with the next step**.
 
 #### Register and start the node
 >In the microServiceBus.com portal, a *Node* refers to the agent running on the  device (your laptop in this case). The *Node* is responsible for interacting with the sensors attached to the device and also understands how to communicate with your IoT Hub.
 
 1. Navigate to the *Nodes* page by clicking [this link](https://microservicebus.com/nodes) or using the menu in the upper left corner.
-2. Click the **CREATE NEW NODE** button, give it a name such as **"device1"** or click the *GENERATE* button if you feel brave.
->The NPM package from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
+2. Click the **CREATE NEW NODE** button. In the "*Create new Node*" dialog, a predefined name has been sugested. Change the name or leave it as is before clicking the "*Next*" button.
+3. On the "Advanced (Optional)" page, toggle On the "Enable" option and click "*CREATE NODE".
+4. On the last page, click the "Advanced" tab.
 
-3. Now on the Nodes page, click the *“Generate”* button to receive a temporary code.
-4. Navigate to the installation directory using the console/terminal window, and type:
-```
-cd node_modules/microservicebus-node
-```
-5. Provition your *Node* using the code from step 2 and the name of your *Node*, Eg:
-```
-node start -c [The code] -n [Node name]
-```
-The node should startup with no errors:
+> The NPM package from previous step should be installed by now, -and it’s time to start it up. The NPM package you installed is a generic client which hasn’t been given credentials to log in to your organization. There are multiple ways to on-board new devices. In this case we're going to be using a *verification code*. 
 
-<img src="http://microservicebus.blob.core.windows.net/sample/hol7_node.jpg" alt="Drawing"/>
+5. Copy the commands from the "Advanced" tab, and run one-by-one in your terminal or console.
 
+The `node start` command starts the *Node*. The agent will begin by verifying that `microservicebus-core` is installed. As this is the first time you start the *Node*, it will download and install the latest version.
 
+Once the `microservicebus-core` package is installed, it will continue to install required packages for communicating with your IoT Hub. Depending on your choice of provider, additional packages will get downloaded before the Node is finally up and running.  
+
+<img src="./img/gettingstarted1.png" alt="Drawing"/>
+
+*The node should startup with no errors. However, if you are using a Linux based OS, you might get errors that DBus is not installed. These errors can be ignored for now.*
 
 ### Create a micro Service
 >Micro services are services that are often generic and independent of other services. They are also, as the name implies, smaller. -They are not as complex as most normal services would be, and they are designed to be more agile. As such they can also be exposed in scenarios where we normally would not see services hosted, such as in devices or circuit, running on a range of platforms. Many ordinary services may qualify as micro services, but a micro service might also be something that turns on your light at home, expose the location of a container or manage configuration of oil rigs.
@@ -151,7 +149,7 @@ timerEvent = setInterval(function () {
 3. Next drag an **Azure IoT Events** service (*Outbound Services*) to the right of the temperature service. 
 4. Attach the *Services* by dragging the *Connector* from your CPU Service to the *Azure IoT Events* Service.
 
-<img src="./img/flow1.png" alt="Drawing" style="height: 100px;"/>
+<img src="./img/flow1.png" alt="Drawing" style="height: 300px;"/>
 
 >Before you save the *Flow* you need to define where the two *Services* should run. Technically, they could run on different, or multiple *Nodes*, but in this scenario, both *Services* should get deployed to the *Node* running on your laptop.
 
