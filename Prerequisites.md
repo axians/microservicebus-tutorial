@@ -15,7 +15,7 @@ After completed, familiarize yourself with some of the [basics](https://code.vis
 
 Optionally install the [mSB extension ](https://marketplace.visualstudio.com/items?itemName=microServiceBus.microservicebus-snippets) 
 
-### <img src="https://microservicebus.blob.core.windows.net/sample/postman.png" alt="Postman"/> Postman
+### <img src="./img/postman.png" alt="VS Code" /> alt="Postman"/> Postman
 
 In some of the labs, we’re going to call Web API’s, and **Postman** is an excellent tool to use for testing those services. Postman is be downloaded and installed from [here](https://www.getpostman.com/downloads/). 
 
