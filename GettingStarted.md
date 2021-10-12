@@ -50,8 +50,11 @@ In this first step you’re going to build an Inbound service that picks up CPU 
 2. Give your *Service* a unique name since we're all sharing the same organization. Eg: ```Alex CPU Service``` (prefixing with your name to make it unique). 
 3. Give the service a meaningful *Description* and hit **CREATE**.
 4. In the *Edit* dialog, open the 0.1 version by clicking **Edit** in the upper right corner.
-5. Expand the window by either double-clicking on the window bar at top.
->A service has three functions by default; *Start*, *Stop* and *Process*. The *Process* function is only used for *Outbound* services.
+5. Expand the window and examine its content.
+
+> A service has three functions by default; *Start*, *Stop* and *Process*. The *Process* function is only used for *Outbound* services.
+
+> Internal functions are named using [Pascal naming convention](https://www.theserverside.com/definition/Pascal-case) to easier distinguish between your custom functions and the built-in provided by microServiceBus-core 
 
 6. As you're building an *Inbound* service you can begin by removing the code in the *Process* function.
 7. Next, we're going to add a new function called **cpuAverage**. The purpose of the function is to calculate the CPU utilization. Straight after the *Process* function, before the last curly brackets, paste the following code:
@@ -82,11 +85,11 @@ In this first step you’re going to build an Inbound service that picks up CPU 
         return { idle: totalIdle / cpus.length, total: totalTick / cpus.length };
     }
 ```
-8. Next, we're going to call the *cpuAverage* from the **Start** function. We want to call the newly created function on an interval, and lucky enough one has already been provided for us. At line 20, Replace the ```// TO DO!``` with:
+8. Next, we're going to call the *cpuAverage* from the **Start** function. We want to call the newly created function on an interval, and lucky enough one has already been provided for us. At line 20, Replace all the content of the *setInterval callback* with:
 ```
 var startMeasure = self.cpuAverage();
 ```
-And delete the rest of the code inside the timer interval. 
+Then delete the rest of the code inside the timer interval. 
 
 9. To make a more accurate measurement, we want to make two readings and calculate the average. Straight after your last line of code, at line 22, add the following:
 ```
@@ -94,21 +97,21 @@ And delete the rest of the code inside the timer interval.
 setTimeout(function () {
 
     //Grab second Measure
-    var endMeasure = self.cpuAverage();
+    const endMeasure = self.cpuAverage();
 
     //Calculate the difference in idle and total time between the measures
-    var idleDifference = endMeasure.idle - startMeasure.idle;
-    var totalDifference = endMeasure.total - startMeasure.total;
+    const idleDifference = endMeasure.idle - startMeasure.idle;
+    const totalDifference = endMeasure.total - startMeasure.total;
 
     //Calculate the average percentage CPU usage
-    var percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
+    const percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
 
 }, 100);
 ```
 10. Great! **percentageCPU** is the value we'd like to submit. But lets add some more attributes the message. At the line after we've declared and set the *percentageCPU* variable, add the following:
 ```
-var computer = os.platform();
-var payload = {
+const computer = os.platform();
+const payload = {
     percent: percentageCPU,
     computer: computer,
     node: self.NodeName,
@@ -119,11 +122,11 @@ var payload = {
 self.SubmitMessage(payload, "application/json", []);
 self.Debug("Submitted reading");
 ```
-You have new created a message and submitting it to the next service.
+You have new created a message and submitted for further processing to the next service.
 
-11. Paste the following line of code on line 6 to access the OS library:
+11. Add the following line of code on line 12 to access the OS library:
 ```
-const os = require('os');
+var os = require('os');
 ```
 12. Before you're done, change the frequency on the interval function from 10 seconds to 3 seconds. Save and close your script.
 ```
@@ -132,11 +135,9 @@ timerEvent = setInterval(function () {
 }, 3000);
 ```
 
-13. Click the green **Save** button at the bottom to save your service and proceed to the next step.
+13. Click the green **SAVE** button at the bottom to save your service. Close the code designer and click **SAVE** before proceeding to the next step.
 
 [Here](./services/cpuService.js) is complete sample of the service. 
-
-
 
 #### Create a Flow
 >A *Flow* or scenario is a process defining how *Services* interact. A *Service* is essentially a piece of software (JavaScript in this case) that does something useful, such as reading a sensor, saving a file or transforming a message to the IoT Hub.
@@ -157,10 +158,13 @@ timerEvent = setInterval(function () {
 
 >**Static-** and **Security** properties are specific to the *Service* and may differ a lot from one *Service* to the other. We'll look more into *Services* in later labs.
 
-6. Click *Ok* and proceed by double-clicking the **Azure IoT Events** and set the *Node* property to the name of your device.
+6. Click *Ok* and proceed by double-clicking the **Azure IoT Events**. Note that the *Node* property is set to `{PreviousNode}`, meaning execute the same *Node* as previous *Service*.
+
 7. Save the script by clicking the "Save" button.
 8. Go back to your console/terminal window and notice your services has been downloaded and started.
+
 <img src="./img/gettingstarted2.png" alt="Drawing"/>
+
 9. At the *Node* page in the portal, enable **Debug** by clicking the toggle button for the *Node*. This causes the *Services* to output debug information. 
 
 10. Although it's convenient to see the output in the console/terminal, this is a luxury you'll often not have access to. However you can see the same output by navigating to the [Console page](https://microservicebus.com/console).

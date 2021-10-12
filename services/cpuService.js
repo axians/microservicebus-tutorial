@@ -25,17 +25,17 @@ var exports = module.exports = {
             setTimeout(function() { 
             
                 //Grab second Measure
-                var endMeasure = self.cpuAverage(); 
+                const endMeasure = self.cpuAverage(); 
                 
                 //Calculate the difference in idle and total time between the measures
-                var idleDifference = endMeasure.idle - startMeasure.idle;
-                var totalDifference = endMeasure.total - startMeasure.total;
+                const idleDifference = endMeasure.idle - startMeasure.idle;
+                const totalDifference = endMeasure.total - startMeasure.total;
                 
                 //Calculate the average percentage CPU usage
-                var percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
+                const percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
                 
-                var computer = os.platform();
-                var payload = {
+                const computer = os.platform();
+                const payload = {
                     percent: percentageCPU,
                     computer: computer,
                     node: self.NodeName,
@@ -44,11 +44,9 @@ var exports = module.exports = {
                 // Submit payload to Node.
                 self.SubmitMessage(payload, "application/json", []);
                 self.Debug("Submitted reading");
-
-            
             }, 100);
 
-        }, interval); // Triggers every three seconds
+        }, 3000); // Triggers every three seconds
     },
     // The Stop method is called from the Node when the Node is 
     // either stopped or has updated Flows. 
